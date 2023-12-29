@@ -1,0 +1,48 @@
+on:
+   push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '18'
+      - name: Build JAR
+        run: |
+          ./gradlew ShadowJar
+      - name: Create Build and Package Directory
+        run: |
+          mkdir ../BuildPackage
+      - name: Debug - List files in current directory
+        run: |
+          ls -R
+      - name: Debug - List files in build/libs directory
+        run: |
+          ls -R build/libs
+      - name: Move JAR to Build and Package Directory
+        run: |
+          mv build/libs/Spandan-Desktop-Application-1.0-SNAPSHOT-all.jar ../BuildPackage/
+      - name: Debug - List files in BuildPackage directory
+        run: |
+          ls -R ../BuildPackage
+      - name: Install WiX Toolset
+        run: |
+          choco install wixtoolset
+      - name: Create EXE and MSI
+        run: |
+          jpackage -t exe --description "Sunfoxt" --app-version 2.0 --input "../BuildPackage" --dest "../BuildPackage" --name "Spandan" --main-jar Spandan-Desktop-Application-1.0-SNAPSHOT-all.jar --module-path javafx --add-modules javafx.controls,java.naming,javafx.graphics,java.sql,javafx.fxml,javafx.base,java.logging,jdk.crypto.ec --win-shortcut --win-console
+          
+      - name: Debug - List files in BuildPackage directory after EXE creation
+        run: |
+          ls -R ../BuildPackage
+      - name: Archive EXE as Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Spandan-2.0
+          path: D:\a\ExeOnPushWorkflow\BuildPackage\Spandan-2.0.exe

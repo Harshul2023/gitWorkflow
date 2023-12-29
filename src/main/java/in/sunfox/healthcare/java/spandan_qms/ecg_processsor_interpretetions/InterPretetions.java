@@ -31,6 +31,7 @@ public class InterPretetions {
         ArrayList<Double> signalLead2 = Filters.movingAverage(ecgPoints.get(6));
         AugmentedLeadGenerator generatedLeads = EcgProcessor.Companion.getAugmentedLeadGenerator(signalLead1, signalLead2);
 
+        System.out.println("sjakjfhakjsf");
         TwelveLeadData twelveLeadData = new TwelveLeadData(ecgPoints.get(0),
                 ecgPoints.get(1),
                 ecgPoints.get(2),

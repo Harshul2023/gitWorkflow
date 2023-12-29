@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="anchorPane" prefHeight="741.0" prefWidth="1298.0" style="-fx-background-color: #F15056;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="in.sunfox.healthcare.java.spandan_qms.main_ui_controllers.LoginUi">
+   <left>
+      <ImageView fitHeight="614.0" fitWidth="764.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@spandan_in_hand_shot-2-954x1024.webp.png" />
+         </image>
+         <BorderPane.margin>
+            <Insets right="130.0" />
+         </BorderPane.margin>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+   </left>
+   <top>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@sunfox_blue_logo-1-svg.svg.png" />
+         </image>
+         <BorderPane.margin>
+            <Insets left="-850.0" top="20.0" />
+         </BorderPane.margin>
+      </ImageView>
+   </top>
+   <center>
+      <AnchorPane prefHeight="794.0" prefWidth="594.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="50.0" top="-70.0" />
+         </BorderPane.margin>
+         <children>
+            <VBox fx:id="loginBox" alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="741.0" prefWidth="620.0" style="-fx-background-color: #ECECEE;">
+               <children>
+                  <FontAwesomeIconView fx:id="closeButton" fill="#f15056" glyphName="CLOSE" onMouseClicked="#closeWindow" selectionFill="#f15056" size="25">
+                     <VBox.margin>
+                        <Insets left="590.0" top="10.0" />
+                     </VBox.margin>
+                  </FontAwesomeIconView>
+                  <FontAwesomeIconView fill="#f15056" glyphName="WINDOW_MINIMIZE" onMouseClicked="#minimizeWindow" selectionFill="#f15056" size="25">
+                     <VBox.margin>
+                        <Insets left="550.0" top="-30.0" />
+                     </VBox.margin>
+                  </FontAwesomeIconView>
+                  <HBox spacing="10.0">
+                     <VBox.margin>
+                        <Insets left="50.0" top="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <ImageView fitHeight="54.0" fitWidth="186.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@SunfoxLogoWithR.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back!">
+                     <font>
+                        <Font name="Times New Roman Bold" size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="50.0" top="50.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter your registered Sunfox email ID to login">
+                     <font>
+                        <Font name="Times New Roman" size="23.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="50.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Label fx:id="errorLabelOfLoginBox" prefHeight="11.0" prefWidth="304.0" textFill="#ea0606" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="50.0" right="350.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <AnchorPane prefHeight="106.0" prefWidth="601.0">
+                     <children>
+                        <Pane layoutY="28.0" prefHeight="53.0" prefWidth="500.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="30.0">
+                           <children>
+                              <FontAwesomeIconView fill="#4369ce" glyphName="ENVELOPE" layoutX="14.0" layoutY="33.0" size="18" />
+                              <TextField fx:id="loginBoxEmailTextField" layoutX="67.0" layoutY="14.0" prefHeight="22.0" prefWidth="380.0" promptText="Enter Your Email Id" stylesheets="@../../../../../style.css">
+                                 <styleClass>
+                                    <String fx:value="tf" />
+                                    <String fx:value="tf_box" />
+                                 </styleClass></TextField>
+                              <ListView fx:id="suggestionsListView" layoutX="53.0" layoutY="36.0" prefHeight="44.0" prefWidth="355.0" style="-fx-background-color: #ffff;" visible="false" />
+                           </children>
+                        </Pane>
+                        <Text layoutX="50.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Id " AnchorPane.leftAnchor="50.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="84.0" prefWidth="581.0">
+                     <children>
+                        <Pane layoutY="29.0" prefHeight="55.0" prefWidth="526.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="30.0">
+                           <children>
+                              <FontAwesomeIconView fill="#4369ce" glyphName="LOCK" layoutX="14.0" layoutY="33.0" size="18" />
+                              <PasswordField fx:id="loginBoxPasswordTextField" focusTraversable="false" layoutX="67.0" layoutY="14.0" prefHeight="22.0" prefWidth="380.0" promptText="EnterPassword" stylesheets="@../../../../../style.css">
+                                 <styleClass>
+                                    <String fx:value="tf" />
+                                    <String fx:value="tf_box" />
+                                 </styleClass></PasswordField>
+                              <FontAwesomeIconView fx:id="showPasswordCheckbox" glyphName="EYE_SLASH" layoutX="488.0" layoutY="30.0" size="20">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></FontAwesomeIconView>
+                           </children>
+                        </Pane>
+                        <Text layoutX="50.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Label fx:id="showpasswordLabel" contentDisplay="CENTER" layoutX="158.0" layoutY="9.0" style="-fx-background-color: transparent;" textAlignment="CENTER">
+                           <font>
+                              <Font name="Times New Roman" size="14.0" />
+                           </font></Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="109.0" prefWidth="563.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <children>
+                        <Button fx:id="loginBoxLoginButton" defaultButton="false" layoutX="58.0" layoutY="41.0" mnemonicParsing="false" onAction="#login" prefHeight="53.0" prefWidth="500.0" style="-fx-background-color: #4369CE; -fx-padding: 0; -fx-border-radius: 5px;" text="Login" textFill="#f7f2f2" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="44.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <ProgressBar fx:id="progressBarOfLoginBox" layoutX="53.0" layoutY="14.0" prefHeight="18.0" prefWidth="521.0" visible="false" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="620.0">
+                     <children>
+                        <Button fx:id="registerHere" layoutX="58.0" layoutY="41.0" mnemonicParsing="false" onAction="#newUserSignUp" prefHeight="46.0" prefWidth="500.0" style="-fx-border-color: #4369CE; -fx-background-color: #ECECEE; -fx-border-radius: 5px;" text="Register" textFill="#4369ce" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="developerModeButton" layoutX="243.0" layoutY="68.0" mnemonicParsing="false" onAction="#developerModeAction" style="-fx-border-color: #4369CE; -fx-border-width: 0 0 2 0; -fx-background-color: transparent;" text="Go To Developer Mode" textFill="#4369ce">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+               </children>
+            </VBox>
+            <VBox fx:id="registrationBox" nodeOrientation="LEFT_TO_RIGHT" prefHeight="742.0" prefWidth="618.0" style="-fx-background-color: #ECECEE;" visible="false">
+               <children>
+                  <FontAwesomeIconView fill="#ff461e" glyphName="WINDOW_MINIMIZE" onMouseClicked="#minimizeWindow" selectionFill="#e70b0b" size="25">
+                     <VBox.margin>
+                        <Insets left="550.0" />
+                     </VBox.margin>
+                  </FontAwesomeIconView>
+                  <FontAwesomeIconView fx:id="closeButton1" fill="#ff461e" glyphName="CLOSE" onMouseClicked="#closeWindow" size="25">
+                     <VBox.margin>
+                        <Insets left="590.0" top="-20.0" />
+                     </VBox.margin>
+                  </FontAwesomeIconView>
+                  <ImageView fitHeight="44.0" fitWidth="172.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@SunfoxLogoWithR.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets left="50.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Register Now">
+                     <font>
+                        <Font name="Times New Roman Bold" size="28.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="50.0" top="50.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text fill="#595959" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter your Sunfox email ID to register and get Started">
+                     <font>
+                        <Font name="Times New Roman" size="19.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="50.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Label fx:id="errorLabelInRegistrationBox" prefHeight="16.0" prefWidth="482.0" textFill="#ea0606">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="50.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <AnchorPane prefHeight="106.0" prefWidth="601.0">
+                     <children>
+                        <Pane layoutX="50.0" layoutY="34.0" prefHeight="36.0" prefWidth="476.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="92.39999999999998" AnchorPane.topAnchor="34.0">
+                           <children>
+                              <TextField fx:id="registrationBoxNameTextField" layoutX="65.0" layoutY="5.0" prefHeight="22.0" prefWidth="380.0" promptText="Enter Name" style="-fx-background-color: transparent;" stylesheets="@../../../../../style.css">
+                                 <styleClass>
+                                    <String fx:value="tf" />
+                                    <String fx:value="tf_box" />
+                                 </styleClass>
+                              </TextField>
+                              <FontAwesomeIconView fill="#4369ce" glyphName="USER" layoutX="14.0" layoutY="20.0" size="18" y="5.0" />
+                           </children>
+                        </Pane>
+                        <Text layoutX="50.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" AnchorPane.leftAnchor="50.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="84.0" prefWidth="581.0">
+                     <children>
+                        <Text layoutX="50.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Pane layoutX="50.0" layoutY="29.0" prefHeight="36.0" prefWidth="476.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="92.39999999999998" AnchorPane.topAnchor="34.0">
+                           <children>
+                              <TextField fx:id="registrationBoxPhoneNumberTextField" focusTraversable="false" layoutX="65.0" layoutY="5.0" prefHeight="22.0" prefWidth="380.0" promptText="Enter Phone Number" style="-fx-background-color: transparent;" stylesheets="@../../../../../style.css">
+                                 <styleClass>
+                                    <String fx:value="tf" />
+                                    <String fx:value="tf_box" />
+                                 </styleClass>
+                              </TextField>
+                              <FontAwesomeIconView fill="#4369ce" glyphName="PHONE" layoutX="14.0" layoutY="20.0" size="18" y="5.0" />
+                           </children>
+                        </Pane>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="84.0" prefWidth="581.0">
+                     <children>
+                        <Text layoutX="50.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Id">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Pane layoutX="50.0" layoutY="26.0" prefHeight="36.0" prefWidth="476.0" style="-fx-background-color: white;" AnchorPane.topAnchor="34.0">
+                           <children>
+                              <TextField fx:id="registrationBoxEmailTextField" focusTraversable="false" layoutX="65.0" layoutY="5.0" prefHeight="22.0" prefWidth="380.0" promptText="Enter Sunfox Email Id" style="-fx-background-color: transparent;" stylesheets="@../../../../../style.css">
+                                 <styleClass>
+                                    <String fx:value="tf" />
+                                    <String fx:value="tf_box" />
+                                 </styleClass>
+                              </TextField>
+                              <FontAwesomeIconView fill="#4369ce" glyphName="ENVELOPE" layoutX="14.0" layoutY="20.0" size="18" y="5.0" />
+                           </children>
+                        </Pane>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="84.0" prefWidth="581.0">
+                     <children>
+                        <Text layoutX="50.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" AnchorPane.topAnchor="0.41796875">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Pane layoutX="50.0" layoutY="27.0" prefHeight="36.0" prefWidth="476.0" style="-fx-background-color: white;" AnchorPane.topAnchor="34.0">
+                           <children>
+                              <TextField fx:id="registrationBoxPasswordTextField" focusTraversable="false" layoutX="65.0" layoutY="5.0" prefHeight="22.0" prefWidth="380.0" promptText="Enter Password" style="-fx-background-color: transparent;" stylesheets="@../../../../../style.css">
+                                 <styleClass>
+                                    <String fx:value="tf" />
+                                    <String fx:value="tf_box" />
+                                 </styleClass>
+                              </TextField>
+                              <FontAwesomeIconView fill="#4369ce" glyphName="LOCK" layoutX="14.0" layoutY="20.0" size="18" y="5.0" />
+                           </children>
+                        </Pane>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="84.0" prefWidth="581.0">
+                     <children>
+                        <Text layoutX="50.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Re-Enter Password">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="109.0" prefWidth="563.0">
+                     <VBox.margin>
+                        <Insets top="-50.0" />
+                     </VBox.margin>
+                     <children>
+                        <Pane layoutX="50.0" layoutY="25.0" prefHeight="36.0" prefWidth="476.0" style="-fx-background-color: white;" AnchorPane.topAnchor="55.0">
+                           <children>
+                              <TextField fx:id="registrationBoxConfirmPasswordTextField" focusTraversable="false" layoutX="65.0" layoutY="5.0" prefHeight="22.0" prefWidth="380.0" promptText="Re Enter Password" style="-fx-background-color: transparent;" stylesheets="@../../../../../style.css">
+                                 <styleClass>
+                                    <String fx:value="tf" />
+                                    <String fx:value="tf_box" />
+                                 </styleClass>
+                              </TextField>
+                              <FontAwesomeIconView fill="#4369ce" glyphName="LOCK" layoutX="14.0" layoutY="20.0" size="18" y="5.0" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <children>
+                        <Button fx:id="login1" layoutX="49.0" layoutY="33.0" mnemonicParsing="false" onAction="#register" prefHeight="40.0" prefWidth="478.0" style="-fx-background-color: #4369CE;" text="Register" textFill="#f7f2f2">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Text layoutX="154.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already Have an Account ?">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <Text id="alreadyRegisterLogin" fx:id="alreadyRegisterLogin" fill="#1b95fd" layoutX="359.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login Here">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <ProgressBar fx:id="progressBarOfRegistrationBox" layoutX="188.0" layoutY="4.0" prefWidth="200.0" visible="false" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

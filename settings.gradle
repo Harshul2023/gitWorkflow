@@ -1,0 +1,31 @@
+
+pluginManagement{
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        google()
+    }
+}
+
+dependencyResolutionManagement {
+//    def codeArtifactToken = "aws codeartifact get-authorization-token --domain sunfox-in --domain-owner 040487387791 --query authorizationToken --output text".execute().text
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven {
+            url ('https://jitpack.io')
+        }
+        google()
+        mavenCentral()
+        maven {
+            url 'https://maven.pkg.github.com/sunfox-technologies/ecg_processor'
+            credentials {
+                username 'spandan_desktop_app'
+                password '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'
+            }
+        }
+    }
+}
+
+include 'SerialCommunicationModule'
+//include 'SerialCommunicationModuleSpandanNeo'
+rootProject.name = "Spandan-Desktop-Application"

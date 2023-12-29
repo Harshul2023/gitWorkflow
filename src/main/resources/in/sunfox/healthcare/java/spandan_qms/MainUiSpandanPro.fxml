@@ -1,0 +1,1290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="mainBorderPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="814.0" prefWidth="1518.0" style="-fx-background-color: #ECECEE;" stylesheets="@../../../../../style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="in.sunfox.healthcare.java.spandan_qms.main_ui_controllers.MainUiSpandanPro">
+   <left>
+      <VBox alignment="TOP_CENTER" maxWidth="-Infinity" prefHeight="901.0" prefWidth="329.0" style="-fx-background-color: white;" BorderPane.alignment="BOTTOM_CENTER">
+         <effect>
+            <DropShadow color="#7090B014" offsetX="14" offsetY="0" radius="40" />
+         </effect>
+         <children>
+            <ImageView fitHeight="71.0" fitWidth="184.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" VBox.vgrow="SOMETIMES">
+               <image>
+                  <Image url="@Pro.png" />
+               </image>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label fx:id="deviceDetectionLabel" alignment="CENTER" contentDisplay="RIGHT" maxHeight="-Infinity" prefHeight="52.0" prefWidth="302.0" style="-fx-background-color: #DD5C5C; -fx-background-radius: 10;" text="Device Disconnected" textAlignment="CENTER" textFill="#efe7e7">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fx:id="deviceConnectingImg" fitHeight="15.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@wpf_disconnected.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+               </VBox.margin>
+               <effect>
+                  <DropShadow>
+                     <input>
+                        <Blend />
+                     </input>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <AnchorPane fx:id="deviceDetailsAnchorPane" maxWidth="-Infinity" prefHeight="200.0" prefWidth="329.0" style="-fx-background-color: #F4F7FE;">
+               <children>
+                  <Text disable="true" fill="#7e7e7e" layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Device Id :">
+                     <font>
+                        <Font name="Times New Roman" size="19.0" />
+                     </font>
+                  </Text>
+                  <Text disable="true" fill="#7e7e7e" layoutX="14.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Device Hash :" AnchorPane.topAnchor="41.0">
+                     <font>
+                        <Font name="Times New Roman" size="19.0" />
+                     </font>
+                  </Text>
+                  <Text disable="true" fill="#7e7e7e" layoutX="14.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Stage :">
+                     <font>
+                        <Font name="Times New Roman" size="19.0" />
+                     </font>
+                  </Text>
+                  <Text disable="true" fill="#7e7e7e" layoutX="14.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activator Id :">
+                     <font>
+                        <Font name="Times New Roman" size="19.0" />
+                     </font>
+                  </Text>
+                  <Text disable="true" fill="#7e7e7e" layoutX="14.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activation TimeStamp :">
+                     <font>
+                        <Font name="Times New Roman" size="19.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="deviceStageText" fill="#1b95fd" layoutX="142.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font name="Times New Roman" size="19.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="activatorIdText" fill="#1b95fd" layoutX="124.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font name="Times New Roman" size="19.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="activationTimeStampText" fill="#1b95fd" layoutX="198.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font name="Times New Roman" size="19.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="connectedDeviceId" fill="#121212" layoutX="114.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font name="Times New Roman" size="19.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="connectedDeviceHash" layoutX="128.0" layoutY="38.0" textFill="#1b95fd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Text disable="true" fill="#7e7e7e" layoutX="14.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client Type :">
+                     <font>
+                        <Font name="Times New Roman" size="19.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="clientType" fill="#1b95fd" layoutX="120.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font name="Times New Roman" size="19.0" />
+                     </font>
+                  </Text>
+                  <Text disable="true" fill="#7e7e7e" layoutX="14.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Firmware Version:">
+                     <font>
+                        <Font name="Times New Roman" size="19.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="firmwarePro" layoutX="164.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font name="Times New Roman" size="19.0" />
+                     </font></Text>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" />
+               </padding>
+            </AnchorPane>
+            <ProgressBar fx:id="progressBarFetchingStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="290.0" stylesheets="@../../../../../style.css" visible="false">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </ProgressBar>
+            <ScrollPane hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="405.0" prefWidth="329.0" style="-fx-background-color: white;" vbarPolicy="NEVER" VBox.vgrow="ALWAYS">
+               <content>
+                  <VBox fx:id="boxContainingStages" fillWidth="false" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="557.0" prefWidth="326.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label prefHeight="48.0" prefWidth="72.0" text="Stages">
+                           <font>
+                              <Font name="Times New Roman Bold" size="25.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="14.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Separator prefHeight="5.0" prefWidth="332.0" />
+                        <AnchorPane fx:id="stage1Box" prefHeight="57.0" prefWidth="328.0">
+                           <children>
+                              <HBox layoutX="14.0" layoutY="18.06884765625" AnchorPane.leftAnchor="14.0">
+                                 <children>
+                                    <Text fx:id="stage1" fill="#b9b8b8" strokeType="OUTSIDE" strokeWidth="0.0" text="Stage 1 :- Device Configuration " textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Times New Roman" size="19.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="stage2Box" prefHeight="57.0" prefWidth="328.0" style="-fx-background-color: white;">
+                           <children>
+                              <Text fx:id="stage2" fill="#b9b8b8" layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stage 2 :- Quality Test 1" textAlignment="CENTER" AnchorPane.leftAnchor="14.0">
+                                 <font>
+                                    <Font name="Times New Roman" size="19.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="stage3Box" prefHeight="57.0" prefWidth="328.0" style="-fx-background-color: white;">
+                           <children>
+                              <Text fx:id="stage3" fill="#b9b8b8" layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stage 3 :- Enclosure Assembly" textAlignment="CENTER" AnchorPane.leftAnchor="14.0">
+                                 <font>
+                                    <Font name="Times New Roman" size="19.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="stage4Box" prefHeight="57.0" prefWidth="328.0" style="-fx-background-color: white;">
+                           <children>
+                              <Text fx:id="stage4" fill="#b9b8b8" layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stage 4 :- Barcode Printing" textAlignment="CENTER" AnchorPane.leftAnchor="14.0">
+                                 <font>
+                                    <Font name="Times New Roman" size="19.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="stage5Box" prefHeight="57.0" prefWidth="328.0" style="-fx-background-color: white;">
+                           <children>
+                              <Text fx:id="stage5" fill="#b9b8b8" layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stage 5 :- Mapping The Accessories" textAlignment="CENTER" AnchorPane.leftAnchor="14.0">
+                                 <font>
+                                    <Font name="Times New Roman" size="19.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="stage6Box" prefHeight="57.0" prefWidth="328.0" style="-fx-background-color: white;">
+                           <children>
+                              <Text fx:id="stage6" fill="#b9b8b8" layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stage 6 :- Quality Test 2" AnchorPane.leftAnchor="14.0">
+                                 <font>
+                                    <Font name="Times New Roman" size="19.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <Label text="Actions">
+                           <VBox.margin>
+                              <Insets left="14.0" top="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Times New Roman Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Separator prefHeight="0.0" prefWidth="341.0" />
+                        <Label fx:id="printBarCode" onMouseClicked="#printBarCodeAction" text="Print Bar Code" textFill="#f15056" underline="true" visible="false">
+                           <VBox.margin>
+                              <Insets left="14.0" top="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Times New Roman" size="17.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="generateReport" onMouseClicked="#generatePdfAction" text="Generate Report" textFill="#f15056" underline="true" visible="false">
+                           <VBox.margin>
+                              <Insets left="14.0" top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Times New Roman" size="17.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </VBox>
+               </content>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </ScrollPane>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <center>
+      <VBox maxHeight="1.7976931348623157E308" BorderPane.alignment="CENTER">
+         <children>
+            <BorderPane fx:id="upperBoxPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="64.0" prefWidth="1167.0">
+               <right>
+                  <GridPane prefHeight="64.0" prefWidth="673.0" BorderPane.alignment="CENTER">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="201.39996795654298" minWidth="10.0" prefWidth="99.99998779296875" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.39998779296874" minWidth="10.0" prefWidth="97.60001220703127" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="161.9999755859375" minWidth="10.0" prefWidth="31.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.59999999999997" minWidth="10.0" prefWidth="66.99995117187501" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.600048828125" minWidth="10.0" prefWidth="61.39997558593751" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.20002441406245" minWidth="10.0" prefWidth="270.20002441406245" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="62.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="25.4" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="20.599996948242186" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <FontAwesomeIconView fx:id="InternetAvailable" fill="#159300" glyphName="WIFI" size="20" text="" wrappingWidth="11.999927043914795" GridPane.columnIndex="2">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </FontAwesomeIconView>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+                           <image>
+                              <Image url="@hacker.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="usernameLabel" text="Label" textFill="#200000" underline="true" GridPane.columnIndex="5">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="roleText" alignment="CENTER" onMouseClicked="#openAdminPanel" prefHeight="28.0" prefWidth="89.0" style="-fx-background-color: rgba(242, 120, 50, 0.24); -fx-text-fill: #F27832; -fx-background-radius: 15px;" text="Admin" textAlignment="CENTER" textFill="#cf1212" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets right="10.0" />
+                           </GridPane.margin>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <AnchorPane fx:id="logOutBox" onMouseClicked="#logOutBoxAction" prefHeight="30.0" prefWidth="50.0" GridPane.columnIndex="3">
+                           <children>
+                              <ImageView fitHeight="24.0" fitWidth="48.0" layoutX="34.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="19.4">
+                                 <image>
+                                    <Image url="@Vector.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children>
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </AnchorPane>
+                     </children>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                  </GridPane>
+               </right>
+               <left>
+                  <BorderPane prefHeight="64.0" prefWidth="486.0" BorderPane.alignment="CENTER">
+                     <right>
+                        <Button fx:id="updateExeBtn" mnemonicParsing="false" onAction="#findExeVersion" prefHeight="33.0" prefWidth="135.0" style="-fx-background-color: #4369CE;" text="Update Application" textFill="#fcf7f7" BorderPane.alignment="CENTER">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </right>
+                     <center>
+                        <ProgressBar fx:id="exeUpdateProgressBar" prefHeight="23.0" prefWidth="335.0" progress="0.0" stylesheets="@../../../../../style.css" visible="false" BorderPane.alignment="CENTER" />
+                     </center>
+                  </BorderPane>
+               </left>
+            </BorderPane>
+            <StackPane maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox fx:id="detectiionsAndGraphVbox" prefHeight="754.0" prefWidth="1161.0">
+                     <children>
+                        <StackPane fx:id="paneContainingGraph" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="325.0" prefWidth="1101.0" VBox.vgrow="NEVER">
+                           <VBox.margin>
+                              <Insets left="30.0" right="30.0" top="20.0" />
+                           </VBox.margin>
+                           <children>
+                              <VBox fx:id="ecgGraphVbox" prefHeight="408.0" prefWidth="1128.0" style="-fx-background-color: white;" visible="false">
+                                 <StackPane.margin>
+                                    <Insets bottom="-161.0" />
+                                 </StackPane.margin>
+                                 <children>
+                                    <Text fx:id="twelveLeadEcgTestText" fill="#4369ce" strokeType="OUTSIDE" strokeWidth="0.0" text="12 Lead Ecg Test">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="55.0" top="30.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="Times New Roman Bold" size="22.0" />
+                                       </font>
+                                    </Text>
+                                    <GridPane>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <VBox.margin>
+                                          <Insets top="25.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                             <center>
+                                                <Circle fx:id="circle0" fill="#dfdfdf" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" BorderPane.alignment="CENTER">
+                                                   <BorderPane.margin>
+                                                      <Insets top="-32.0" />
+                                                   </BorderPane.margin>
+                                                </Circle>
+                                             </center>
+                                             <top>
+                                                <Text fill="#faf5f5" strokeType="OUTSIDE" strokeWidth="0.0" text="V1" BorderPane.alignment="CENTER">
+                                                   <BorderPane.margin>
+                                                      <Insets />
+                                                   </BorderPane.margin>
+                                                </Text>
+                                             </top>
+                                          </BorderPane>
+                                          <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                             <center>
+                                                <Circle fx:id="circle1" fill="#dfdfdf" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" BorderPane.alignment="CENTER">
+                                                   <BorderPane.margin>
+                                                      <Insets top="-32.0" />
+                                                   </BorderPane.margin>
+                                                </Circle>
+                                             </center>
+                                             <top>
+                                                <Text fill="#f7f2f2" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="V2" BorderPane.alignment="CENTER">
+                                                   <BorderPane.margin>
+                                                      <Insets />
+                                                   </BorderPane.margin>
+                                                </Text>
+                                             </top>
+                                          </BorderPane>
+                                          <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                                             <center>
+                                                <Circle fx:id="circle2" fill="#dfdfdf" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" BorderPane.alignment="CENTER">
+                                                   <BorderPane.margin>
+                                                      <Insets top="-32.0" />
+                                                   </BorderPane.margin>
+                                                </Circle>
+                                             </center>
+                                             <top>
+                                                <Text fill="#faf6f6" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="V3" BorderPane.alignment="CENTER">
+                                                   <BorderPane.margin>
+                                                      <Insets />
+                                                   </BorderPane.margin>
+                                                </Text>
+                                             </top>
+                                          </BorderPane>
+                                          <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
+                                             <center>
+                                                <Circle fx:id="circle3" fill="#dfdfdf" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" BorderPane.alignment="CENTER">
+                                                   <BorderPane.margin>
+                                                      <Insets top="-32.0" />
+                                                   </BorderPane.margin>
+                                                </Circle>
+                                             </center>
+                                             <top>
+                                                <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="V4" BorderPane.alignment="CENTER">
+                                                   <BorderPane.margin>
+                                                      <Insets />
+                                                   </BorderPane.margin>
+                                                </Text>
+                                             </top>
+                                          </BorderPane>
+                                          <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
+                                             <center>
+                                                <Circle fx:id="circle4" fill="#dfdfdf" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" BorderPane.alignment="CENTER">
+                                                   <BorderPane.margin>
+                                                      <Insets top="-32.0" />
+                                                   </BorderPane.margin>
+                                                </Circle>
+                                             </center>
+                                             <top>
+                                                <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="V5" BorderPane.alignment="CENTER">
+                                                   <BorderPane.margin>
+                                                      <Insets />
+                                                   </BorderPane.margin>
+                                                </Text>
+                                             </top>
+                                          </BorderPane>
+                                          <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5">
+                                             <center>
+                                                <Circle fx:id="circle5" fill="#dfdfdf" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" BorderPane.alignment="CENTER">
+                                                   <BorderPane.margin>
+                                                      <Insets top="-32.0" />
+                                                   </BorderPane.margin>
+                                                </Circle>
+                                             </center>
+                                             <top>
+                                                <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="V6" BorderPane.alignment="CENTER">
+                                                   <BorderPane.margin>
+                                                      <Insets />
+                                                   </BorderPane.margin>
+                                                </Text>
+                                             </top>
+                                          </BorderPane>
+                                          <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6">
+                                             <center>
+                                                <Circle fx:id="circle6" fill="#dfdfdf" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" BorderPane.alignment="CENTER">
+                                                   <BorderPane.margin>
+                                                      <Insets top="-32.0" />
+                                                   </BorderPane.margin>
+                                                </Circle>
+                                             </center>
+                                             <top>
+                                                <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="II" BorderPane.alignment="CENTER">
+                                                   <BorderPane.margin>
+                                                      <Insets />
+                                                   </BorderPane.margin>
+                                                </Text>
+                                             </top>
+                                          </BorderPane>
+                                          <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7">
+                                             <center>
+                                                <Circle fx:id="circle7" fill="#dfdfdf" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" BorderPane.alignment="CENTER">
+                                                   <BorderPane.margin>
+                                                      <Insets top="-32.0" />
+                                                   </BorderPane.margin>
+                                                </Circle>
+                                             </center>
+                                             <top>
+                                                <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="I" BorderPane.alignment="CENTER">
+                                                   <BorderPane.margin>
+                                                      <Insets />
+                                                   </BorderPane.margin>
+                                                </Text>
+                                             </top>
+                                          </BorderPane>
+                                       </children>
+                                    </GridPane>
+                                    <LineChart fx:id="ecgGraphLineChart" accessibleRole="BUTTON" alternativeRowFillVisible="false" animated="false" axisSortingPolicy="NONE" cache="true" cacheHint="SPEED" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="210.0" prefWidth="1078.0" snapToPixel="false" style="-fx-background-color: transparent; -fx-border-width: 1px; -fx-border-color: #EAEAEA;" stylesheets="@../../../../../style.css" verticalGridLinesVisible="false" verticalZeroLineVisible="false" visible="false">
+                                       <xAxis>
+                                          <NumberAxis animated="false" autoRanging="false" forceZeroInRange="false" minorTickVisible="false" opacity="0.0" prefHeight="0.0" prefWidth="840.0" side="LEFT" tickLabelGap="100.0" tickMarkVisible="false" upperBound="1000.0" />
+                                       </xAxis>
+                                       <yAxis>
+                                          <NumberAxis fx:id="yAxis" animated="false" autoRanging="false" forceZeroInRange="false" opacity="0.0" prefHeight="186.0" prefWidth="4.0" side="LEFT" tickLabelGap="150.0" upperBound="1000.0" />
+                                       </yAxis>
+                                       <VBox.margin>
+                                          <Insets left="25.0" right="25.0" top="25.0" />
+                                       </VBox.margin>
+                                    </LineChart>
+                                    <ProgressBar fx:id="graphProgressBar" prefHeight="19.0" prefWidth="1123.0" style=".check-box:selected .box -fx-background-color :: red;">
+                                       <VBox.margin>
+                                          <Insets left="25.0" right="25.0" top="10.0" />
+                                       </VBox.margin>
+                                    </ProgressBar>
+                                    <BorderPane prefHeight="30.0" prefWidth="1108.0">
+                                       <center>
+                                          <Label fx:id="timeLeftLabel" alignment="CENTER" textAlignment="CENTER" textFill="#949494" BorderPane.alignment="CENTER">
+                                             <BorderPane.margin>
+                                                <Insets left="-150.0" />
+                                             </BorderPane.margin>
+                                             <font>
+                                                <Font name="Times New Roman" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </center>
+                                       <VBox.margin>
+                                          <Insets left="25.0" />
+                                       </VBox.margin>
+                                       <left>
+                                          <Button fx:id="nextLeadTwelveLeadBtn" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#nextLeadTwelveLeadAction" prefHeight="51.0" prefWidth="117.0" style="-fx-border-color: DD5C5C; -fx-background-color: transparent; -fx-text-fill: DD5C5C;" text="Next Lead" textFill="#d91414" visible="false" BorderPane.alignment="CENTER">
+                                             <BorderPane.margin>
+                                                <Insets bottom="10.0" left="25.0" top="25.0" />
+                                             </BorderPane.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                       </left>
+                                       <right>
+                                          <Button fx:id="retakeLead" disable="true" mnemonicParsing="false" onAction="#retakeLeadAction" prefHeight="27.0" prefWidth="114.0" style="-fx-background-color: white; -fx-border-color: #4369CE;" text="Retake Lead" textFill="#4369ce" visible="false" BorderPane.alignment="CENTER">
+                                             <BorderPane.margin>
+                                                <Insets bottom="10.0" right="45.0" top="25.0" />
+                                             </BorderPane.margin>
+                                             <graphic>
+                                                <FontAwesomeIconView fill="#4369ce" glyphName="ROTATE_RIGHT" />
+                                             </graphic>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                       </right>
+                                    </BorderPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </StackPane>
+                        <BorderPane fx:id="newDeviceBorderPane" prefHeight="336.0" prefWidth="1130.0">
+                           <center>
+                              <VBox alignment="CENTER" prefHeight="499.0" prefWidth="1130.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <ImageView fitHeight="100.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
+
+                                    </ImageView>
+                                    <Label prefHeight="23.0" prefWidth="226.0" text="No Device Detected" textAlignment="CENTER" textFill="#dd5c5c">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="Times New Roman Bold" size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Please Connect A Device or Add A new Device To Proceed">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="Times New Roman" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Button mnemonicParsing="false" onAction="#addNewDevice" prefHeight="31.0" prefWidth="114.0" style="-fx-background-color: E37F09;" text="Add New Device" textFill="#faf4f4">
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                                 <BorderPane.margin>
+                                    <Insets />
+                                 </BorderPane.margin>
+                              </VBox>
+                           </center>
+                           <VBox.margin>
+                              <Insets top="-180.0" />
+                           </VBox.margin>
+                        </BorderPane>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="resultVbox" fillWidth="false" maxHeight="1.7976931348623157E308" prefHeight="753.0" prefWidth="1233.0" style="-fx-background-color: transparent;" visible="false">
+                     <children>
+                        <ScrollPane fx:id="resultPane" maxHeight="1.7976931348623157E308" prefHeight="1683.0" prefWidth="1144.0" style="-fx-background-color: white;" stylesheets="@../../../../../style.css" VBox.vgrow="ALWAYS">
+                           <content>
+                              <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="1806.0" prefWidth="1164.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <Text fx:id="resultHeading" fill="#4369ce" strokeType="OUTSIDE" strokeWidth="0.0" text="Analysis Result">
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" left="50.0" top="50.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="Times New Roman Bold" size="21.0" />
+                                       </font>
+                                    </Text>
+                                    <StackPane prefHeight="97.0" prefWidth="1122.0">
+                                       <children>
+                                          <LineChart fx:id="v1Chart" accessibleRole="BUTTON" alternativeRowFillVisible="false" animated="false" axisSortingPolicy="NONE" cache="true" cacheHint="SPEED" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="1122.0" snapToPixel="false" style="-fx-border-color: #EAEAEA; -fx-border-width: 1px;" stylesheets="@../../../../../style.css" title="v1" titleSide="LEFT" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                                             <xAxis>
+                                                <NumberAxis fx:id="v1Axis" animated="false" autoRanging="false" forceZeroInRange="false" minorTickVisible="false" opacity="0.0" prefHeight="0.0" prefWidth="840.0" side="LEFT" tickLabelGap="100.0" tickMarkVisible="false" upperBound="5000.0" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis fx:id="yAxis8" animated="false" forceZeroInRange="false" opacity="0.0" prefHeight="186.0" prefWidth="4.0" side="LEFT" tickLabelGap="150.0" upperBound="1000.0" />
+                                             </yAxis>
+                                             <StackPane.margin>
+                                                <Insets top="5.0" />
+                                             </StackPane.margin>
+                                          </LineChart>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="20.0" />
+                                       </VBox.margin>
+                                    </StackPane>
+                                    <StackPane prefHeight="83.0" prefWidth="1126.0">
+                                       <children>
+                                          <LineChart fx:id="v2Chart" accessibleRole="BUTTON" alternativeRowFillVisible="false" animated="false" axisSortingPolicy="NONE" cache="true" cacheHint="SPEED" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="1122.0" snapToPixel="false" style="-fx-border-color: #EAEAEA; -fx-border-width: 1px;" stylesheets="@../../../../../style.css" title="v2" titleSide="LEFT" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                                             <xAxis>
+                                                <NumberAxis fx:id="v2Axis" animated="false" autoRanging="false" forceZeroInRange="false" minorTickVisible="false" opacity="0.0" prefHeight="0.0" prefWidth="840.0" side="LEFT" tickLabelGap="100.0" tickMarkVisible="false" upperBound="5000.0" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis fx:id="yAxis1" animated="false" forceZeroInRange="false" opacity="0.0" prefHeight="186.0" prefWidth="4.0" side="LEFT" tickLabelGap="150.0" upperBound="1000.0" />
+                                             </yAxis>
+                                             <StackPane.margin>
+                                                <Insets top="5.0" />
+                                             </StackPane.margin>
+                                          </LineChart>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="20.0" />
+                                       </VBox.margin>
+                                    </StackPane>
+                                    <StackPane prefHeight="89.0" prefWidth="1123.0">
+                                       <children>
+                                          <LineChart fx:id="v3Chart" accessibleRole="BUTTON" alternativeRowFillVisible="false" animated="false" axisSortingPolicy="NONE" cache="true" cacheHint="SPEED" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="1122.0" snapToPixel="false" style="-fx-border-color: #EAEAEA; -fx-border-width: 1px;" stylesheets="@../../../../../style.css" title="v3" titleSide="LEFT" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                                             <xAxis>
+                                                <NumberAxis fx:id="v3Axis" animated="false" autoRanging="false" forceZeroInRange="false" minorTickVisible="false" opacity="0.0" prefHeight="0.0" prefWidth="840.0" side="LEFT" tickLabelGap="100.0" tickMarkVisible="false" upperBound="5000.0" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis fx:id="yAxis2" animated="false" forceZeroInRange="false" opacity="0.0" prefHeight="186.0" prefWidth="4.0" side="LEFT" tickLabelGap="150.0" upperBound="1000.0" />
+                                             </yAxis>
+                                             <StackPane.margin>
+                                                <Insets top="5.0" />
+                                             </StackPane.margin>
+                                          </LineChart>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="20.0" />
+                                       </VBox.margin>
+                                    </StackPane>
+                                    <StackPane prefHeight="83.0" prefWidth="1126.0">
+                                       <children>
+                                          <LineChart fx:id="v4Chart" accessibleRole="BUTTON" alternativeRowFillVisible="false" animated="false" axisSortingPolicy="NONE" cache="true" cacheHint="SPEED" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="1122.0" snapToPixel="false" style="-fx-border-color: #EAEAEA; -fx-border-width: 1px;" stylesheets="@../../../../../style.css" title="v4" titleSide="LEFT" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                                             <xAxis>
+                                                <NumberAxis fx:id="v4Axis" animated="false" autoRanging="false" forceZeroInRange="false" minorTickVisible="false" opacity="0.0" prefHeight="0.0" prefWidth="840.0" side="LEFT" tickLabelGap="100.0" tickMarkVisible="false" upperBound="5000.0" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis fx:id="yAxis3" animated="false" forceZeroInRange="false" opacity="0.0" prefHeight="186.0" prefWidth="4.0" side="LEFT" tickLabelGap="150.0" upperBound="1000.0" />
+                                             </yAxis>
+                                             <StackPane.margin>
+                                                <Insets top="5.0" />
+                                             </StackPane.margin>
+                                          </LineChart>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="20.0" />
+                                       </VBox.margin>
+                                    </StackPane>
+                                    <StackPane prefHeight="97.0" prefWidth="1122.0">
+                                       <children>
+                                          <LineChart fx:id="v5Chart" accessibleRole="BUTTON" alternativeRowFillVisible="false" animated="false" axisSortingPolicy="NONE" cache="true" cacheHint="SPEED" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="1122.0" snapToPixel="false" style="-fx-border-color: #EAEAEA; -fx-border-width: 1px;" stylesheets="@../../../../../style.css" title="v5" titleSide="LEFT" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                                             <xAxis>
+                                                <NumberAxis fx:id="v5Axis" animated="false" autoRanging="false" forceZeroInRange="false" minorTickVisible="false" opacity="0.0" prefHeight="0.0" prefWidth="840.0" side="LEFT" tickLabelGap="100.0" tickMarkVisible="false" upperBound="5000.0" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis fx:id="yAxis4" animated="false" forceZeroInRange="false" opacity="0.0" prefHeight="186.0" prefWidth="4.0" side="LEFT" tickLabelGap="150.0" upperBound="1000.0" />
+                                             </yAxis>
+                                             <StackPane.margin>
+                                                <Insets top="5.0" />
+                                             </StackPane.margin>
+                                          </LineChart>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="20.0" />
+                                       </VBox.margin>
+                                    </StackPane>
+                                    <StackPane prefHeight="83.0" prefWidth="1126.0">
+                                       <children>
+                                          <LineChart fx:id="v6Chart" accessibleRole="BUTTON" alternativeRowFillVisible="false" animated="false" axisSortingPolicy="NONE" cache="true" cacheHint="SPEED" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="1122.0" snapToPixel="false" style="-fx-border-color: #EAEAEA; -fx-border-width: 1px;" stylesheets="@../../../../../style.css" title="v6" titleSide="LEFT" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                                             <xAxis>
+                                                <NumberAxis fx:id="v6Axis" animated="false" autoRanging="false" forceZeroInRange="false" minorTickVisible="false" opacity="0.0" prefHeight="0.0" prefWidth="840.0" side="LEFT" tickLabelGap="100.0" tickMarkVisible="false" upperBound="5000.0" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis fx:id="yAxis5" animated="false" forceZeroInRange="false" opacity="0.0" prefHeight="186.0" prefWidth="4.0" side="LEFT" tickLabelGap="150.0" upperBound="1000.0" />
+                                             </yAxis>
+                                             <StackPane.margin>
+                                                <Insets top="5.0" />
+                                             </StackPane.margin>
+                                          </LineChart>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="20.0" />
+                                       </VBox.margin>
+                                    </StackPane>
+                                    <StackPane prefHeight="89.0" prefWidth="1123.0">
+                                       <children>
+                                          <LineChart fx:id="l1Chart" accessibleRole="BUTTON" alternativeRowFillVisible="false" animated="false" axisSortingPolicy="NONE" cache="true" cacheHint="SPEED" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="1122.0" snapToPixel="false" style="-fx-border-color: #EAEAEA; -fx-border-width: 1px;" stylesheets="@../../../../../style.css" title="L1" titleSide="LEFT" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                                             <xAxis>
+                                                <NumberAxis fx:id="l1Axis" animated="false" autoRanging="false" forceZeroInRange="false" minorTickVisible="false" opacity="0.0" prefHeight="0.0" prefWidth="840.0" side="LEFT" tickLabelGap="100.0" tickMarkVisible="false" upperBound="5000.0" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis fx:id="yAxis6" animated="false" forceZeroInRange="false" opacity="0.0" prefHeight="186.0" prefWidth="4.0" side="LEFT" tickLabelGap="150.0" upperBound="1000.0" />
+                                             </yAxis>
+                                             <StackPane.margin>
+                                                <Insets top="5.0" />
+                                             </StackPane.margin>
+                                          </LineChart>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="20.0" />
+                                       </VBox.margin>
+                                    </StackPane>
+                                    <StackPane layoutX="10.0" layoutY="10.0" prefHeight="83.0" prefWidth="1126.0">
+                                       <children>
+                                          <LineChart fx:id="l2Chart" accessibleRole="BUTTON" alternativeRowFillVisible="false" animated="false" axisSortingPolicy="NONE" cache="true" cacheHint="SPEED" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="1122.0" snapToPixel="false" style="-fx-border-color: #EAEAEA; -fx-border-width: 1px;" stylesheets="@../../../../../style.css" title="L2" titleSide="LEFT" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                                             <xAxis>
+                                                <NumberAxis fx:id="l2Axis" animated="false" autoRanging="false" forceZeroInRange="false" minorTickVisible="false" opacity="0.0" prefHeight="0.0" prefWidth="840.0" side="LEFT" tickLabelGap="100.0" tickMarkVisible="false" upperBound="5000.0" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis fx:id="yAxis7" animated="false" forceZeroInRange="false" opacity="0.0" prefHeight="186.0" prefWidth="4.0" side="LEFT" tickLabelGap="150.0" upperBound="1000.0" />
+                                             </yAxis>
+                                             <StackPane.margin>
+                                                <Insets top="5.0" />
+                                             </StackPane.margin>
+                                          </LineChart>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="20.0" />
+                                       </VBox.margin>
+                                    </StackPane>
+                                    <CheckBox fx:id="referenceSignalTestingCheckBox" alignment="TOP_CENTER" mnemonicParsing="false" text="Reference Standard Signal Testing " underline="true">
+                                       <VBox.margin>
+                                          <Insets bottom="15.0" left="35.0" top="35.0" />
+                                       </VBox.margin>
+                                    </CheckBox>
+                                    <Label text="Test Results">
+                                       <VBox.margin>
+                                          <Insets bottom="15.0" left="35.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="Times New Roman" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <GridPane prefHeight="69.0" prefWidth="1088.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <BorderPane prefHeight="62.0" prefWidth="523.0" style="-fx-background-color: F7FBFF;">
+                                             <center>
+                                                <Text fx:id="timeTakenText" fill="#737373" strokeType="OUTSIDE" strokeWidth="0.0" BorderPane.alignment="CENTER">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                </Text>
+                                             </center>
+                                             <GridPane.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </GridPane.margin>
+                                             <left>
+                                                <Label text="Total Time" textFill="#121212" BorderPane.alignment="CENTER">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                   <BorderPane.margin>
+                                                      <Insets left="50.0" />
+                                                   </BorderPane.margin>
+                                                </Label>
+                                             </left>
+                                          </BorderPane>
+                                          <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: F7FBFF;" GridPane.columnIndex="1">
+                                             <center>
+                                                <Text fx:id="pointsText" fill="#737373" strokeType="OUTSIDE" strokeWidth="0.0" BorderPane.alignment="CENTER">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                </Text>
+                                             </center>
+                                             <left>
+                                                <Label text="Samples" textFill="#121212" BorderPane.alignment="CENTER">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                   <BorderPane.margin>
+                                                      <Insets left="50.0" />
+                                                   </BorderPane.margin>
+                                                </Label>
+                                             </left>
+                                             <GridPane.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </GridPane.margin>
+                                          </BorderPane>
+                                       </children>
+                                    </GridPane>
+                                    <GridPane gridLinesVisible="true" prefHeight="382.0" prefWidth="1087.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="396.6" minHeight="10.0" prefHeight="49.00002250671386" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="576.0000030517579" minHeight="10.0" prefHeight="332.9999774932861" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-width: 3 3 3 3; -fx-border-color: #1B95FD;">
+                                             <center>
+                                                <Label text="Parameters" BorderPane.alignment="CENTER">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="19.0" />
+                                                   </font>
+                                                </Label>
+                                             </center>
+                                          </BorderPane>
+                                          <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-width: 3 3 3 3; -fx-border-color: #1B95FD;" GridPane.columnIndex="1">
+                                             <center>
+                                                <Label text="ObservedValue" BorderPane.alignment="CENTER">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="19.0" />
+                                                   </font>
+                                                </Label>
+                                             </center>
+                                          </BorderPane>
+                                          <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-width: 3 3 3 3; -fx-border-color: #1B95FD;" GridPane.columnIndex="2">
+                                             <center>
+                                                <Label text="Expected Value" BorderPane.alignment="CENTER">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="19.0" />
+                                                   </font>
+                                                </Label>
+                                             </center>
+                                          </BorderPane>
+                                          <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-width: 3 3 3 3; -fx-border-color: #1B95FD;" GridPane.columnIndex="3">
+                                             <center>
+                                                <Label text="Remark" BorderPane.alignment="CENTER">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="19.0" />
+                                                   </font>
+                                                </Label>
+                                             </center>
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </BorderPane>
+                                          <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" GridPane.rowIndex="1">
+                                             <children>
+                                                <Label text="Heart Rate" textFill="#121212">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label text="PR" textFill="#121212">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label text="QRS" textFill="#121212">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label text="QT" textFill="#121212">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label text="QTC" textFill="#121212">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label text="Q Amplitude" textFill="#121212">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label text="R Amplitude" textFill="#121212">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label text="S Amplitude" textFill="#121212">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <children>
+                                                <Text fx:id="heartRateTextActual" fill="#737373" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="prTextActual" fill="#737373" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="qrsTextActual" fill="#737373" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="qtTextActual" fill="#737373" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="qtcTextActual" fill="#737373" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="qAmplitudeTextActual" fill="#737373" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="rAmplitudeTextActual" fill="#737373" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="sAmplitudeTextActual" fill="#737373" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <children>
+                                                <Text fx:id="heartRateTextExpected" fill="ORANGE" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="prTextExpected" fill="ORANGE" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="qrsTextExpected" fill="ORANGE" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="qtTextExpected" fill="ORANGE" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="qtcTextExpected" fill="ORANGE" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="qAmplitudeTextExpected" fill="ORANGE" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="rAmplitudeTextExpected" fill="ORANGE" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="sAmplitudeTextExpected" fill="ORANGE" strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                             <children>
+                                                <Label fx:id="heartRateRemark" alignment="TOP_CENTER">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="prRemark" alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="qrsRemark" alignment="TOP_CENTER" layoutX="10.0" layoutY="28.0">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="qtRemark" alignment="TOP_CENTER" layoutX="10.0" layoutY="47.0">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="qtcRemark" alignment="TOP_CENTER" layoutX="10.0" layoutY="65.0">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="qAmplitudeRemark" alignment="TOP_CENTER">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label fx:id="rAmplitudeRemark" alignment="TOP_CENTER">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label fx:id="sAmplitudeRemark" alignment="TOP_CENTER">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="30.0" top="10.0" />
+                                       </VBox.margin>
+                                    </GridPane>
+                                    <GridPane prefHeight="73.0" prefWidth="1123.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <BorderPane layoutX="592.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: F7FBFF;">
+                                             <left>
+                                                <Label prefHeight="38.0" prefWidth="170.0" text="Trace Ressemblence" BorderPane.alignment="CENTER">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                   <BorderPane.margin>
+                                                      <Insets left="80.0" />
+                                                   </BorderPane.margin>
+                                                </Label>
+                                             </left>
+                                             <right>
+                                                <Label fx:id="cofficientLabel" BorderPane.alignment="CENTER">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                   <BorderPane.margin>
+                                                      <Insets right="80.0" top="20.0" />
+                                                   </BorderPane.margin>
+                                                </Label>
+                                             </right>
+                                             <GridPane.margin>
+                                                <Insets left="20.0" right="50.0" top="10.0" />
+                                             </GridPane.margin>
+                                          </BorderPane>
+                                          <BorderPane fx:id="testResultBorderPa" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: F7FBFF;" GridPane.columnIndex="1">
+                                             <left>
+                                                <Label prefHeight="37.0" prefWidth="127.0" text="Test Status" BorderPane.alignment="CENTER">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="18.0" />
+                                                   </font>
+                                                   <BorderPane.margin>
+                                                      <Insets left="80.0" />
+                                                   </BorderPane.margin>
+                                                </Label>
+                                             </left>
+                                             <right>
+                                                <Label fx:id="testPassOrFailLabel" BorderPane.alignment="CENTER">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="17.0" />
+                                                   </font>
+                                                   <BorderPane.margin>
+                                                      <Insets right="80.0" />
+                                                   </BorderPane.margin>
+                                                </Label>
+                                             </right>
+                                             <GridPane.margin>
+                                                <Insets left="20.0" right="50.0" top="10.0" />
+                                             </GridPane.margin>
+                                          </BorderPane>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </GridPane>
+                                    <GridPane prefHeight="46.0" prefWidth="1074.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="427.19995117187494" minWidth="10.0" prefWidth="399.4000244140625" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="383.20000000000005" minWidth="10.0" prefWidth="383.20000000000005" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.4000244140624" minWidth="10.0" prefWidth="292.79999999999995" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Button fx:id="failTestBtn" mnemonicParsing="false" prefHeight="47.0" prefWidth="335.0" style="-fx-background-color: #BA2707;" text="Mark Test As Failed" textFill="#fcf9f9" visible="false">
+                                             <GridPane.margin>
+                                                <Insets left="30.0" right="30.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                          <Button fx:id="passTestBtn" mnemonicParsing="false" prefHeight="53.0" prefWidth="382.0" style="-fx-background-color: Green;" text="Mark Test As Passed" textFill="#fcf9f9" visible="false" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="30.0" right="30.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                          <Button fx:id="retakeTest" mnemonicParsing="false" prefHeight="53.0" prefWidth="382.0" style="-fx-background-color: #4369CE;" text="↺ Retake Quality Test" textFill="#f9f9fa" visible="false" GridPane.columnIndex="2">
+                                             <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                             </font>
+                                             <GridPane.margin>
+                                                <Insets left="30.0" right="30.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="30.0" top="50.0" />
+                                       </VBox.margin>
+                                    </GridPane>
+                                 </children>
+                              </VBox>
+                           </content>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+         </children>
+         <BorderPane.margin>
+            <Insets left="20.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>

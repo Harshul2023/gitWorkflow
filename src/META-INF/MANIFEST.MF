@@ -1,0 +1,2 @@
+Manifest-Version: 1.0
+Main-Class: in.sunfox.healthcare.java.spandan_qms.TestMain;
